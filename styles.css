@@ -35,9 +35,6 @@ figure {
 }
 
 
-
-
-
 .content1{
    width: 200px
    margin:auto
@@ -60,10 +57,10 @@ figure {
 .content4{
    margin:auto
    padding: 25px 50px;
-   background-color: #A9F5F2;
+   background-color: #0BD1F9;
 }
 .content5{
    margin:auto
    padding: 25px 50px;
-   background-color: #CEF6F5;
+   background-color: #91eeff;
 }
