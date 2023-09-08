@@ -12,8 +12,8 @@
        <h3> Motivation </h3>
        <ul> 
           <li> There are a lot of applications using the motor JGA25-370 controlled by Arduino Platform.</li>
-		  <li> For tuning the control compensator, the plant transfer function is needed, but there is not enough data in motor datasheet to determine it.</li>
-          <li> We can find a lot of parameter estimation and identification algoritms in the literature, which implies a complex implementation and requires a sofisticated lab structure.</li>
+		  <li> In order to tuning the control compensator, the plant transfer function is needed, but there is not enough data in motor datasheet to determine it.</li>
+          <li> We can find a lot of parameter estimation and identification algorithms in the literature, which implies a complex implementation and requires a sofisticated lab structure.</li>
           <li> In this context, this page presents a simple proposal to get the DC motor parameters using a simple lab structure: </li>
 		  <ul>
 		     <li>PC computer </li>
@@ -25,8 +25,8 @@
 			 <li>Jumpers for connections </li>		 
 			 <li>Hikari HX-120 LCR Meter </li>
 			 <li>Hikari HM-2090 Digital Multimeter</li>
-			 <li>DC Power Suppliers: 5V (LCD, keypad and interface modules - to not overload voltage regulator in Arduino board), 12V (L298N bridge), USB or 9V* power source (to supply Arduino Board).<br>
-			       <small>* Recommend if some analog input will be used, since it provides a more stable voltage reference to ADC. </small></li>
+			 <li>DC Power Suppliers: 5V (LCD, keypad and interface modules - to not overload the voltage regulator in Arduino board), 12V (L298N bridge), USB or 9V* power source (to supply Arduino Board).<br>
+			       <small>* Recommended if some analog input will be used, since it provides a more stable voltage reference to ADC. </small></li>
 		  </ul>
 		  <li>It is important to emphasize that the intention is to keep the method simple, then, a simple parameter estimation will be obtained to support the motor control strategies. For better results, the reader has to look for more precise identification algorithms and better lab resources.</li>
           <li> Several dynamic aspects of the system were neglected in order to obtain only the parameters of the second-order dynamic model of a DC machine. </li> 
@@ -106,7 +106,7 @@
 	<div class="content3">
         <h3> Dynamic Model of a DC Motor </h3>
 		<ul>
-           <li>In the present proposal, it will be considering the simple model of a DC motor. Dynamic aspects of the gearbox will be neglected. </li>
+           <li>In the present proposal, it will be considered the simple model of a DC motor. Dynamic aspects of the gearbox will be neglected. </li>
            <li>The scheme of the DC motor is shown in Fig.3. </li>
 		   <li>The loop equation of the electrical circuit of the armature (1) and the mechanical equation (2) of the motor are presented below, where:</li>
 		   <ul>
@@ -123,8 +123,8 @@
 		   $$ J\frac{d\omega}{dt}\ +\ B\ \omega\ \ =\ T_m\ -T_L \ \  (2)$$
            <li>JGA25-370 doesn't have field winding and the magnetic field is produced by permanent magnets, then, for a constant magnetic field, the motor torque is proportional to the armature current, and the electromotive force is proportional to the speed, as determined by (3) and (4), respectively, where:</li>			   		   
 		   <ul>
-			   <li>kT is the torque constant; </li>
-			   <li>ke is back-emf constant. </li>
+			   <li>k<sub>T</sub> is the torque constant; </li>
+			   <li>k<sub>e</sub> is back-emf constant. </li>
 		   </ul>
 		</ul>
          $$ T_m=k_T\ i_a \ \ (3)$$
@@ -134,7 +134,7 @@
 		   <figcaption>Fig.3 - DC Motor Scheme</figcaption>
         </figure>
 		<ul>
-			<li>Considering the energy conversion is easy to see that <i>k<sub>t</sub> = k<sub>e</sub></i>: </li>
+			<li>Considering the energy conversion is easy to see that <i>k<sub>T</sub> = k<sub>e</sub></i>: </li>
 		</ul>		
 		$$ P_m = T_m\ \omega = P_e = e\ i_a \ \ (5) $$
 		$$ k_T\ i_a\ \omega = k_e\ \omega\ i_a \ \ (6) $$
@@ -290,16 +290,16 @@
 		   <figcaption>Fig.6 - Deceleration Curves: (a)rps, (b)rad/s </figcaption>
         </figure>					
 		<ul>
-		 <li> Neglecting the load torque non-linearity and considering a constant torque <i>T<sub>L</sub></i> (like in a hoist application) and the armature circuit open, that is, <i>T<sub>m</sub>=0</i>,  the system can be described by (17). </li>
-         <li> Equation (17) is linear non-homogeneous first order equation. We can use Laplace Transform to solve it. Thus, considering (18), we can determine the Laplace Transform of (17), as can be seen in (19). </li>
+		 <li> Neglecting the load torque non-linearity and considering a constant torque <i>T<sub>L</sub></i> (like in a hoisting application) and the armature circuit open, that is, <i>T<sub>m</sub>=0</i>,  the system can be described by (17). </li>
+         <li> Equation (17) is a non-homogeneous first order differential equation. We can use Laplace Transform to solve it. Thus, considering (18), we can determine the Laplace Transform of (17), as can be seen in (19). </li>
 	    </ul>
 		$$J\frac{d\omega}{dt}\ +\ B\ \omega\ =\ -T_L    \ \ (17) $$
 		$$L\left\{\frac{d\omega\left(t\right)}{dt}\right\}\ =\ s\ L\left\{\omega\left(t\right)\right\}\ -\ \omega\left(0\right)   \ \ (18) $$
 		$$J\left[s\ \omega\left(s\right)\ -\ \omega_0\ \right]\ +B\ \omega\left(s\right)\ =\ -\ \frac{T_L}{s}   \ \ (19) $$
 		<ul>
 		   <li>After some algebraic manipulations, <i>&#969 (s)</i> can be determined (20). </li>
-		   <li>In order to determine the inverse Laplace Transform to get  <i>&#969 (t)</i>, it is necessary to apply the partial fraction decomposition on the right side of(20). The result is presented in (21). </i></li>
-		   <li>Then, determining the inverse Laplace Transform of (21), we have <i>&#969 (t), as seen in (22).</i> </li>
+		   <li>In order to determine the inverse Laplace Transform to get  <i>&#969 (t)</i>, it is necessary to apply the partial fraction decomposition on the right side of (20). The result is presented in (21). </i></li>
+		   <li>Then, determining the inverse Laplace Transform of (21), we have <i>&#969 (t)</i>, as seen in (22). </li>
 	    </ul>	
 		$$\omega\left(s\right)\ =\ -\frac{T_L}{s\left(Js\ +\ B\right)}\ +\ \frac{J\ \omega_0}{Js\ +\ B} \ \ (20) $$
 		$$\omega\left(s\right)\ =\ -\frac{T_L}{B\ s}-\frac{J\ T_L}{B\left(Js\ +\ B\right)}\ +\ \frac{J\ \omega_0}{Js\ +\ B}  \ \ (21) $$
