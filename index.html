@@ -134,7 +134,7 @@
 		   <figcaption>Fig.3 - DC Motor Scheme</figcaption>
         </figure>
 		<ul>
-			<li>Considering the energy conversion is easy to see that <i>k<sub>T</sub> = k<sub>e</sub></i>: </li>
+			<li>Considering the energy conversion, it is easy to see that <i>k<sub>T</sub> = k<sub>e</sub></i>: </li>
 		</ul>		
 		$$ P_m = T_m\ \omega = P_e = e\ i_a \ \ (5) $$
 		$$ k_T\ i_a\ \omega = k_e\ \omega\ i_a \ \ (6) $$
@@ -368,7 +368,7 @@
 	<div class="content4">
         <h3> The Plant Scheme </h3>
 		<ul> 
-		   <li>The plant scheme use to get the presented results is shown in Fig.8. The Arduino code is presented below. </li>
+		   <li>The plant scheme used to get the presented results is shown in Fig.8. The Arduino code is presented below. </li>
 	    </ul>
         <figure>
            <img src="System_Diagram.png" style="width:80%">
@@ -388,7 +388,7 @@
 			<li>To have low armature current ripple, increase the PWM carrier frequency (5kHz or higher). Using the unipolar PWM strategy, the switching frequency seen by the motor is twice the switching frequency of the bridge.</li>
 			<li>Unipolar PWM uses a triangular carrier and the bridge arms operate in a complementary way: <i>OCR1B = TOP - OCR1A</i>. </li>
 			<li>Keep in mind that in Arduino Programming, Timer 0 is used to generate the millisecond counter, if you use it to another purpose, the  millisecond counter will be lost and the use of millis() function won't make sense. </li>
-			<li>Use the Timer 2 to generate the control sample rate. Based on a cpu clock of 16MHz, it is not possible to get 100Hz as a clock division result, but it is possible to get a near frequency, as 125Hz. It is also possible to configure, for example, 500 Hz and execute the control law every 5 interruptions. Keep in mind that the CPU must calculate the control action in a time interval significantly smaller than the timer interrupt request rate for the To convert the control action into Volts for timer counting, consider equation (27), where TOP is the maximum counting value and Vdc is the DC link voltage of the bridge.real-time execution. As previously mentioned, the higher the sampling rate, the lower the accuracy of the speed measurement. </li>
+			<li>Use the Timer 2 to generate the control sample rate. Based on a cpu clock of 16MHz, it is not possible to get 100Hz as a clock division result, but it is possible to get a near frequency, as 125Hz. It is also possible to configure, for example, 500 Hz and execute the control law every 5 interrupts. Keep in mind that the CPU must calculate the control action in a time interval significantly smaller than the timer interrupt request rate for the real-time execution. As previously mentioned, the higher the sampling rate, the lower the accuracy of the speed measurement. </li>
             <li>To convert the control action from Volts to timer counting, consider (27), where <i>TOP</i> is the maximum counting value of the timer and <i>V<sub>dc</sub></i> is the DC link voltage of the bridge. </li>
 		   </ul>
 	    </ul>
