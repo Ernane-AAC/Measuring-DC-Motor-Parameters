@@ -382,6 +382,7 @@
 	       <li>Note that the plant transfer function is decribed by (8). </li>
 		   <li>In case to acquire electric quantities of the motor, see a way to use the ADC in the link below. </li>
 		   <li>Fig. 9 presents a comparison of simulation and experimental results, using the parameters obtained by the current method, considering a proportional-integral speed compensator with a not so aggressive adjustment.</li>
+           <li>A more aggressive adjustment is presented in Fig. 10. In both cases the discrete PI presents an anti-windup scheme.
            <li><b>Hints</b>: </li>
 		   <ul>
 		    <li>Atmega328p Timer 1 is a 16-bit counter, which provides a higher PWM resolution than Timer 0 or Timer2 (both have 8-bit). </li>
@@ -395,7 +396,11 @@
 		$$  Timer\  Compare\  Value = \frac{Control\ Action}{Vdc}\ \frac{Top}{2}\ +\frac{Top}{2} \ \ (27) $$ 
 	    <figure>
            <img src="Simulation_Experimental_comparison.png" style="width:60%">
-		   <figcaption>Fig.9 - Speed Control Results Using PI Compensator - Simulation and Experimental Comparison </figcaption>
+		   <figcaption>Fig.9 - Speed Control Results Using PI Compensator - Simulation and Experimental Comparison (Slow and robust adjustment) </figcaption>
+        </figure>
+		<figure>
+           <img src="Simulation_Experimental_comparison_2.png" style="width:60%">
+		   <figcaption>Fig.10 - Speed Control Results Using PI Compensator - Simulation and Experimental Comparison (More agressive adjustment) </figcaption>
         </figure>
 	</div>
 	<div class="content5">
